@@ -1,27 +1,30 @@
-pessoa = []
-galera = []
+temporaria = []
+principal = []
+menor = maior = 0
 while True:
-    nome = pessoa.append(input('Informe o nome: '))
-    peso = pessoa.append(float(input('Informe o peso(kg): ')))
-    galera.append(pessoa[:])
-    pessoa.clear()
+    temporaria.append(input('Nome: '))
+    temporaria.append(float(input('Peso: ')))
+    if len(principal) == 0:
+        maior = menor = temporaria[1]
+    else:
+        if temporaria[1] > maior:
+            maior = temporaria[1]
+        if temporaria[1] < menor:
+            menor = temporaria[1]
+    principal.append(temporaria[:])
+    temporaria.clear()
     resposta = input('Deseja continuar? [S/N] ').upper()
     if resposta in 'N':
         break
-print('=='*20)
-print(f'{'LISTA DE PESSOAS CADASTRADAS':^40}')
-print('=='*20)
-for d in galera:
-        print(f'Nome: {d[0]:<10} Peso: {d[1]:>3}Kg')
-print('=='*30)
-print(f'Foram cadastradas {len(galera)} pessoas')
-mais_pesado = []
-menos_pesado = []
-for p in galera:
-     if p[1] < 90:
-          menos_pesado.append(p)
-     else:
-          mais_pesado.append(p)
-print(f'As pessoas mais pesada foram {mais_pesado}')
-print(f'As pessoas mais leves são: {menos_pesado}')
-print('=='*60)
+print('=~'*30)
+print(f'Foram cadastradas {len(principal)} pessoas.')
+print(f'O maior peso cadastrado foi {maior} KG. De ', end='')
+for p in principal:
+    if p[1] == maior:
+        print(f'[{p[0]}]', end=' ')
+print()
+print(f'O menor peso cadastrado foi {menor} KG. De ', end=' ')
+for p in principal:
+    if p[1] == menor:
+        print(f'[{p[0]}]', end=' ')
+print()

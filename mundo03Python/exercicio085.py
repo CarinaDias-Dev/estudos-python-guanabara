@@ -1,18 +1,13 @@
-numeros = []
-impares = []
-pares = []
-for n in range(0, 7):
-    numeros.append(int(input(f'Informe um {n+1}º número: ')))
-for p in numeros:
-    if p % 2 == 0:
-        pares.append(p)
-        pares.sort()
+numeros = [[],[]]
+valor = 0
+for n in range(1, 8):
+    valor = int(input(f'Digite o {n}º numero: '))
+    if valor % 2 == 0:
+        numeros[0].append(valor)
     else:
-        impares.append(p)
-        impares.sort()
-numeros.clear()
-numeros.append(pares[:])
-numeros.append(impares[:])
-print('≃~'*30)
-print(f'Os valores pares digitados foram {numeros[0]}')
-print(f'Valores impares digitados {numeros[1]}')
+        numeros[1].append(valor)
+print('='*40)
+numeros[0].sort()
+numeros[1].sort()
+print(f'Os numeros pares digitados são {numeros[0]}')
+print(f'Os números impares digitados são: {numeros[1]}')
