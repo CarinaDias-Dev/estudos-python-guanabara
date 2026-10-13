@@ -16,6 +16,8 @@ while True:
         resposta = str(input('Deseja continuar? [S/N] ')).upper()[0]
         if resposta in 'SN':
             break
+        else:
+            print('ERRO! Digite apenas S ou N.')
     if resposta == 'N':
          break
     
@@ -26,7 +28,7 @@ for i in jogador.keys(): #Cabeçalho da minha lista de jogadores
     print(f'{i:<15}', end='')
 print()
 print('-'*40)
-for k, v in enumerate(principal): #Lista de jogadores e seus respectivos dados.
+for k, v in enumerate(principal): #Lista de jogadores(principal) e seus respectivos dados.
     print(f'{k:>3} ', end=' ')
     for d in v.values():
         print(f'{str(d):<15}', end='')
