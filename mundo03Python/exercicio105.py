@@ -19,5 +19,7 @@ def notas(*n, sit=False):
             r['situação'] = 'RUIM'
     return r
 
+
+#Programa Principal
 resp = notas(5.5, 9.5, 2, 6.5, 7.8, sit=True)
 print(resp)
